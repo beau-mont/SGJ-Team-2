@@ -20,18 +20,24 @@ namespace Jam.Game.Player
         public GameObject playerTorso;
         public GameObject playerArms;
         public GameObject playerHead;
+        public GameObject playerHurtbox;
         private Animator legsAnimator;
         private Animator torsoAnimator;
         private Animator armsAnimator;
         private Animator headAnimator;
+        private Animator hurtboxAnimator;
+
+        InputAction attackAction;
 
         void Awake()
         {
             moveAction = InputSystem.actions.FindAction("Move");
+            attackAction = InputSystem.actions.FindAction("Attack");
             legsAnimator = playerLegs.GetComponent<Animator>();
             torsoAnimator = playerTorso.GetComponent<Animator>();
             armsAnimator = playerArms.GetComponent<Animator>();
             headAnimator = playerHead.GetComponent<Animator>();
+            hurtboxAnimator = playerHurtbox.GetComponent<Animator>();
         }
 
         void FixedUpdate()
@@ -41,6 +47,8 @@ namespace Jam.Game.Player
             float horizontalMove = moveAction.ReadValue<Vector2>().x * horizontalSpeed;
             float verticalMove = moveAction.ReadValue<Vector2>().y * verticalSpeed;
             transform.position += new Vector3(horizontalMove, verticalMove, 0f) * Time.fixedDeltaTime;
+            if (horizontalMove > 0) transform.rotation = Quaternion.Euler(0, 0, 0);
+            else if (horizontalMove < 0) transform.rotation = Quaternion.Euler(0, 180, 0);
 
             if (transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
             if (transform.position.x > maxX) transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
@@ -52,10 +60,25 @@ namespace Jam.Game.Player
             if (moveAction.ReadValue<Vector2>() != Vector2.zero)
             {
                 legsAnimator.SetBool("Moving", true);
+                torsoAnimator.SetBool("Moving", true);
+                armsAnimator.SetBool("Moving", true);
             }
             else
             {
                 legsAnimator.SetBool("Moving", false);
+                torsoAnimator.SetBool("Moving", false);
+                armsAnimator.SetBool("Moving", false);
+            }
+        }
+
+        private void Update()
+        {
+            if (attackAction.WasPressedThisFrame())
+            {
+                legsAnimator.SetTrigger("Punch1");
+                torsoAnimator.SetTrigger("Punch1");
+                armsAnimator.SetTrigger("Punch1");
+                hurtboxAnimator.SetTrigger("Punch1");
             }
         }
     }
