@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Jam.Game.Combat;
 
 namespace Jam.Game.Player
 {
@@ -27,12 +28,18 @@ namespace Jam.Game.Player
         private Animator headAnimator;
         private Animator hurtboxAnimator;
 
-        InputAction attackAction;
+        [SerializeField] private AttackController attackController;
+
+        InputAction attack1Action;
+        InputAction attack2Action;
+        InputAction specialAction;
 
         void Awake()
         {
             moveAction = InputSystem.actions.FindAction("Move");
-            attackAction = InputSystem.actions.FindAction("Attack");
+            attack1Action = InputSystem.actions.FindAction("Attack1");
+            attack2Action = InputSystem.actions.FindAction("Attack2");
+            specialAction = InputSystem.actions.FindAction("Special");
             legsAnimator = playerLegs.GetComponent<Animator>();
             torsoAnimator = playerTorso.GetComponent<Animator>();
             armsAnimator = playerArms.GetComponent<Animator>();
@@ -73,12 +80,20 @@ namespace Jam.Game.Player
 
         private void Update()
         {
-            if (attackAction.WasPressedThisFrame())
+            if (attack1Action.IsPressed())
             {
-                legsAnimator.SetTrigger("Punch1");
-                torsoAnimator.SetTrigger("Punch1");
-                armsAnimator.SetTrigger("Punch1");
-                hurtboxAnimator.SetTrigger("Punch1");
+                attackController.Attack1();
+                return;
+            }
+            if (attack2Action.IsPressed())
+            {
+                attackController.Attack2();
+                return;
+            }
+            if (specialAction.IsPressed())
+            {
+                attackController.Special();
+                return;
             }
         }
     }

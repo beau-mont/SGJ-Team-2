@@ -707,6 +707,7 @@ GameObject:
   - component: {fileID: 1474043356}
   - component: {fileID: 1474043355}
   - component: {fileID: 1474043354}
+  - component: {fileID: 1474043358}
   - component: {fileID: 1474043353}
   - component: {fileID: 1474043357}
   m_Layer: 7
@@ -809,6 +810,7 @@ MonoBehaviour:
   playerArms: {fileID: 1134363139}
   playerHead: {fileID: 1980228837}
   playerHurtbox: {fileID: 1690590852}
+  attackController: {fileID: 1474043358}
 --- !u!114 &1474043355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,6 +875,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1474043358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474043352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1224d988c0d9ec78810587c549a834f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 1474043352}
+  animators:
+  - {fileID: 1690590857}
+  - {fileID: 1134363142}
+  attacks1:
+  - {fileID: 11400000, guid: 257ea9817d5161f5d999a778805759e7, type: 2}
+  - {fileID: 11400000, guid: fb6f21fe8b640a54c93ee8ee4bb7922c, type: 2}
+  attacks2: []
+  specials: []
+  lastAttacks: []
+  forgetTime: 1
+  lastAttackTime: 0
+  hardDelay: 0.25
 --- !u!1 &1570927923
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +991,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690590852}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
