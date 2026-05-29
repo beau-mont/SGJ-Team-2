@@ -16,7 +16,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "Attack1",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
                     "expectedControlType": "",
@@ -25,7 +25,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack 2",
+                    "name": "Attack2",
                     "type": "Button",
                     "id": "490c758f-d550-40fb-a6f6-1082fd8950b6",
                     "expectedControlType": "",
@@ -161,7 +161,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Attack",
+                    "action": "Attack1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -172,7 +172,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "Attack1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -183,7 +183,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Attack 2",
+                    "action": "Attack2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -194,7 +194,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Attack 2",
+                    "action": "Attack2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
