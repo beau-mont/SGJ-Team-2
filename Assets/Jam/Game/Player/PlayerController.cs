@@ -50,8 +50,8 @@ namespace Jam.Game.Player
             if (horizontalMove > 0) transform.rotation = Quaternion.Euler(0, 0, 0);
             else if (horizontalMove < 0) transform.rotation = Quaternion.Euler(0, 180, 0);
 
-            if (transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
-            if (transform.position.x > maxX) transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+            //if (transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+            //if (transform.position.x > maxX) transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
             if (transform.position.y < minY) transform.position = new Vector3(transform.position.x, minY, transform.position.z);
             if (transform.position.y > maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
 

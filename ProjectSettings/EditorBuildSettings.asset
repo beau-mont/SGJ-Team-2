@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Jam/Leo/Scenes/MainMenu.unity
+    guid: 97663cbd637426841b1263996bae5597
+  - enabled: 1
+    path: Assets/Jam/Leo/Scenes/LevelSelect.unity
+    guid: 7877838964df3a6489991a603b9b6536
+  - enabled: 1
+    path: Assets/Jam/Leo/Scenes/Options.unity
+    guid: 9b3c566171be9bc44be1d9654b7edf9c
+  - enabled: 1
+    path: Assets/Jam/Leo/Scenes/Credits.unity
+    guid: ce2773d2e4f8b7542a58b037ac56135a
+  - enabled: 1
+    path: Assets/Jam/Leo/Scenes/Level1.unity
+    guid: 21af7d852ea34d14d8ce39894f5729d4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
